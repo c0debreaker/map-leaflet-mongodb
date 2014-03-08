@@ -6,13 +6,13 @@ var markersDisplayed = false,
     golden    = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.'),
     golden2   = L.marker([42.1051, -88.3794]).bindPopup('This is Golden2.'),
 
-    cities = L.layerGroup([littleton, denver, aurora, golden]),
+    cities = L.layerGroup([littleton, denver, aurora, golden]);
 
-    minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 22677, attribution: MapLib.getAboutMap()}),
-    midnight  = L.tileLayer(MapLib.getUrlTile(), {styleId: 999,   attribution: MapLib.getAboutMap()}),
-    motorways = L.tileLayer(MapLib.getUrlTile(), {styleId: 46561, attribution: MapLib.getAboutMap()});
+var    minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 22677, attribution: MapLib.getAboutMap()});
+var    midnight  = L.tileLayer(MapLib.getUrlTile(), {styleId: 999,   attribution: MapLib.getAboutMap()});
+var   motorways = L.tileLayer(MapLib.getUrlTile(), {styleId: 46561, attribution: MapLib.getAboutMap()});
 
-var map = L.map('map', {
+var map = L.map('leafletmap', {
         center: [39.73, -104.99],
         zoom: 9,
         layers: [minimal, motorways, cities]
@@ -28,7 +28,6 @@ var overlayMaps = {
         "Cities": cities
     };
 
-    popup = L.popup(),
 
 //    circle = L.circle(
 //    [51.508, -0.11], 500, {
@@ -46,6 +45,8 @@ var overlayMaps = {
     L.marker([51.50367, -0.07427],{icon: MapLib.getCustomMarker()}).addTo(map).bindPopup("<b>Hello Neil!</b><br />How's Butler's Wharf?");//.openPopup();
     L.marker([51.51464, -0.12162],{icon: MapLib.getCustomMarker()}).addTo(map).bindPopup("<b>Hi Ron!</b> What do you think about \"The Prince of Wales\"?");//.openPopup();
     L.marker([51.51308, -0.09398],{icon: MapLib.getCustomMarker()}).addTo(map).bindPopup("Neil is at Williamson's Tavern.");//.openPopup();
+
+    var popup = L.popup();
 
     map.on('click', onMapClick);
 

@@ -8,7 +8,7 @@ var
     urlTile = 'http://{s}.tile.cloudmade.com/72ca1b1af51047529c39511853c8b13f/997/256/{z}/{x}/{y}.png',
 
     maxZoom = 18,
-
+    defaultZoom = 9,
     markerLayers = [],
 
     customMarker = L.icon({
@@ -23,6 +23,10 @@ var
 
     return {
         getMaxZoom : function() {
+            return maxZoom;
+        },
+
+        getDefaultZoom : function() {
             return maxZoom;
         },
 
