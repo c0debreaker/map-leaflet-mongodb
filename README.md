@@ -1,4 +1,4 @@
 map-leaflet-mongodb
 ===================
 
-An example JavaScript map application using Leaflet library and MongoDB as the backend
+A JavaScript Mapping application using Leaflet library and MongoDB as the backend
