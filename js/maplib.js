@@ -6,6 +6,7 @@ var
                'Imagery © <a href="http://cloudmade.com">CloudMade</a>',
 
     // Open Street Maps
+    console.log "querystring : ", location.search.split('tileprovider=')[1].split('&')[0]
     urlTile = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
     //urlTile = 'http://{s}.tile.cloudmade.com/72ca1b1af51047529c39511853c8b13f/{styleId}/256/{z}/{x}/{y}.png',
 
