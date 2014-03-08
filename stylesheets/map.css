@@ -15,7 +15,7 @@ button, #go {
 #labeladdress, #address {
     position: relative;
     top: 5px;
-    color: #ffffff;
+    color: #000000;
 }
 #blueBar {
     background-color: #3B5998;
