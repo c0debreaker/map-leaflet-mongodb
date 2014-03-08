@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0
+}
+
+.leaflet-top .leaflet-control {
+    margin-top: 46px;
+}
+
+button, #go {
+    position: relative;
+    top: 5px;
+    color:#000000;
+}
+#labeladdress, #address {
+    position: relative;
+    top: 5px;
+    color: #ffffff;
+}
+#blueBar {
+    background-color: #3B5998;
+    border-bottom: 1px solid #133783;
+    min-width: 100%;
+    position: absolute;
+    z-index: 300;
+    height: 32px;
+    box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.52);
+}
