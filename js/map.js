@@ -8,16 +8,11 @@ var markersDisplayed = false,
 
     cities = L.layerGroup([littleton, denver, aurora, golden]),
 
-    //var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/API-key/997/256/{z}/{x}/{y}.png',
+    minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 22677, attribution: MapLib.getAboutMap()}),
+    midnight  = L.tileLayer(MapLib.getUrlTile(), {styleId: 999,   attribution: MapLib.getAboutMap()}),
+    motorways = L.tileLayer(MapLib.getUrlTile(), {styleId: 46561, attribution: MapLib.getAboutMap()});
 
-    cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade',
-    cloudmadeUrl = 'http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/{styleId}/256/{z}/{x}/{y}.png',
-
-    minimal   = L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution}),
-    midnight  = L.tileLayer(cloudmadeUrl, {styleId: 999,   attribution: cloudmadeAttribution}),
-    motorways = L.tileLayer(cloudmadeUrl, {styleId: 46561, attribution: cloudmadeAttribution}),
-
-    map = L.map('map', {
+var map = L.map('map', {
         center: [39.73, -104.99],
         zoom: 9,
         layers: [minimal, motorways, cities]
@@ -31,16 +26,16 @@ var markersDisplayed = false,
     overlayMaps = {
         "Motorways": motorways,
         "Cities": cities
-    },
+    };
 
-    popup = L.popup(),
+    // popup = L.popup(),
 
-    circle = L.circle(
-    [51.508, -0.11], 500, {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5
-    }).addTo(map).bindPopup("<b>Hi Neil!</b><br />Ako ay isang bilog.");
+//    circle = L.circle(
+//    [51.508, -0.11], 500, {
+//        color: 'red',
+//        fillColor: '#f03',
+//        fillOpacity: 0.5
+//    }).addTo(map).bindPopup("<b>Hi Neil!</b><br />Ako ay isang bilog.");
 
     //	var map = L.map('map').setView([42.1061, -88.3796], 13, layers: [minimal, motorways, cities]);
     L.control.layers(baseMaps, overlayMaps).addTo(map);
