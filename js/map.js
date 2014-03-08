@@ -16,14 +16,14 @@ var map = L.map('map', {
         center: [39.73, -104.99],
         zoom: 9,
         layers: [minimal, motorways, cities]
-    }),
+    });
 
-    baseMaps = {
+var baseMaps = {
         "Minimal": minimal,
         "Night View": midnight
-    },
+    };
 
-    overlayMaps = {
+var overlayMaps = {
         "Motorways": motorways,
         "Cities": cities
     };
