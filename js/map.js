@@ -6,11 +6,12 @@ var markersDisplayed = false,
     golden    = L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.'),
     golden2   = L.marker([42.1051, -88.3794]).bindPopup('This is Golden2.'),
 
-    cities = L.layerGroup([littleton, denver, aurora, golden]);
+    cities = L.layerGroup([littleton, denver, aurora, golden]),
 
-var    minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 22677, attribution: MapLib.getAboutMap()});
-var    midnight  = L.tileLayer(MapLib.getUrlTile(), {styleId: 999,   attribution: MapLib.getAboutMap()});
-var   motorways = L.tileLayer(MapLib.getUrlTile(), {styleId: 46561, attribution: MapLib.getAboutMap()});
+    // minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 22677, attribution: MapLib.getAboutMap()}),
+    minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 997, attribution: MapLib.getAboutMap()}),
+    midnight  = L.tileLayer(MapLib.getUrlTile(), {styleId: 999,   attribution: MapLib.getAboutMap()}),
+    motorways = L.tileLayer(MapLib.getUrlTile(), {styleId: 46561, attribution: MapLib.getAboutMap()});
 
 var map = L.map('leafletmap', {
         center: [39.73, -104.99],
@@ -40,7 +41,6 @@ var overlayMaps = {
     L.control.layers(baseMaps, overlayMaps).addTo(map);
     console.log('----cities------>>>>>>>>>',cities);
 
-    L.tileLayer(MapLib.getUrlTile(), {attribution: MapLib.getAboutMap(), styleId: 997, maxZoom: MapLib.getMaxZoom()}).addTo(map);
     L.marker([51.5011, -0.11263],{icon: MapLib.getCustomMarker()}).addTo(map).bindPopup("Neil is waiting for you at <b>Launcelot Street</b>");//.openPopup();
     L.marker([51.50367, -0.07427],{icon: MapLib.getCustomMarker()}).addTo(map).bindPopup("<b>Hello Neil!</b><br />How's Butler's Wharf?");//.openPopup();
     L.marker([51.51464, -0.12162],{icon: MapLib.getCustomMarker()}).addTo(map).bindPopup("<b>Hi Ron!</b> What do you think about \"The Prince of Wales\"?");//.openPopup();

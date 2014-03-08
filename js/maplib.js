@@ -5,7 +5,9 @@ var
                '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                'Imagery © <a href="http://cloudmade.com">CloudMade</a>',
 
-    urlTile = 'http://{s}.tile.cloudmade.com/72ca1b1af51047529c39511853c8b13f/{styleId}/256/{z}/{x}/{y}.png',
+    // Open Street Maps
+    urlTile = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+    //urlTile = 'http://{s}.tile.cloudmade.com/72ca1b1af51047529c39511853c8b13f/{styleId}/256/{z}/{x}/{y}.png',
 
     maxZoom = 18,
     defaultZoom = 9,
