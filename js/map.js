@@ -1,4 +1,4 @@
-console.log "querystring : ", location.search.split('tileprovider=')[1].split('&')[0];
+console.log("querystring : " + location.search.split('tileprovider=')[1].split('&')[0]);
 
 var markersDisplayed = false,
 
