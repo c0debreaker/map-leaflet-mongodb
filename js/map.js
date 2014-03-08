@@ -28,7 +28,7 @@ var overlayMaps = {
         "Cities": cities
     };
 
-    // popup = L.popup(),
+    popup = L.popup(),
 
 //    circle = L.circle(
 //    [51.508, -0.11], 500, {
