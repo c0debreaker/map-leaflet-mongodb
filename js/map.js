@@ -10,7 +10,7 @@ var markersDisplayed = false,
 
     // minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 22677, attribution: MapLib.getAboutMap()}),
     minimal   = L.tileLayer(MapLib.getUrlTile(), {styleId: 997, attribution: MapLib.getAboutMap()}),
-    midnight  = L.tileLayer(MapLib.getUrlTile(), {styleId: 999,   attribution: MapLib.getAboutMap()}),
+    midnight  = L.tileLayer(MapLib.getUrlTile(), {styleId: 65053,   attribution: MapLib.getAboutMap()}),
     motorways = L.tileLayer(MapLib.getUrlTile(), {styleId: 46561, attribution: MapLib.getAboutMap()});
 
 var map = L.map('leafletmap', {
