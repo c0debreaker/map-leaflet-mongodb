@@ -10,13 +10,17 @@ body {
 button, #go {
     position: relative;
     top: 5px;
-    color:#000000;
+    color: black;
 }
 #labeladdress, #address {
     position: relative;
     top: 5px;
-    color: #000000;
+    color: white;
 }
+
+input#address {
+    color: black;
+    }
 #blueBar {
     background-color: #3B5998;
     border-bottom: 1px solid #133783;
