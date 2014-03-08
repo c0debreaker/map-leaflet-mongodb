@@ -3,13 +3,16 @@ var MapLib = (function() {
 var
     aboutMap = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-               'Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+               'Imagery © <a href="http://cloudmade.com">CloudMade</a>';
 
     // Open Street Maps
-    urlTile = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-    //urlTile = 'http://{s}.tile.cloudmade.com/72ca1b1af51047529c39511853c8b13f/{styleId}/256/{z}/{x}/{y}.png',
+    if (location.search.split('tileprovider=')[1].split('&')[0] == 'osm') {
+        urlTile = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+    } else {
+        urlTile = 'http://{s}.tile.cloudmade.com/72ca1b1af51047529c39511853c8b13f/{styleId}/256/{z}/{x}/{y}.png'
+    }
 
-    maxZoom = 18,
+var maxZoom = 18,
     defaultZoom = 9,
     markerLayers = [],
 

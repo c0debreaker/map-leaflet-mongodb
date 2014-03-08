@@ -1,5 +1,3 @@
-console.log("querystring : " + location.search.split('tileprovider=')[1].split('&')[0]);
-
 var markersDisplayed = false,
 
     littleton = L.marker([42.1061, -88.3796]).bindPopup('This is Littleton, CO.'),
