@@ -50,6 +50,8 @@
             $item = addMarkertoMap($_POST["operation"], $_POST["latlon"]);
 
             $collection->insert($item);
+            // TODO: check out if variable is correct
+            echo $item['_id'];
 
         }
 

@@ -1,4 +1,5 @@
 var markersDisplayed = false,
+    generatedMarkerId = undefined,
 
     littleton = L.marker([42.1061, -88.3796]).bindPopup('This is Littleton, CO.'),
     denver    = L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.'),
@@ -106,10 +107,48 @@ var overlayMaps = {
 
     // capture click event on map
     function onMapClick(e) {
-        //popup.setLatLng(e.latlng).setContent("You poked me at " + e.latlng.toString()).openOn(map);
-        console.log('=================>>>>>>>>>>>>>>>',e.latlng.toString());
-        MapLib.addMarker(e.latlng.toString());
-        var newMarker = L.marker(e.latlng).addTo(map).bindPopup("Marker on location Lat-Long : "+e.latlng.toString()+" has been saved to MongoDB.").openPopup();
+        var generatedMarkerId = undefined;
+
+        MapLib.addMarker(function(data) {
+            console.log("generatedMarkerId" + data);
+            generatedMarkerId = data;
+        }, e.latlng.toString());
+        // Can also be written as
+        // function c(data) {
+        //   console.log("generatedMarkerId" + data);
+        // }
+        // MapLib.addMarker(c, e.latlng.toString() );
+        var newMarker = new L.marker(e.latlng).addTo(map); //.bindPopup("Marker on location Lat-Long : "+e.latlng.toString()+" has been saved to MongoDB.").openPopup();
+
+        // -----
+
+        function removeThisMarker(e) {
+            // This function is a closure. It is closed-over `marker`, `i`, and `item`
+            // ie. it keeps them in it's scope wherever it is called from
+            map.removeLayer(newMarker);
+
+            $.ajax({
+                type: "POST",
+                url: "removemarker.php",
+                data: {
+                    operation: "REMOVE",
+                    id: generatedMarkerId
+                }
+            })
+            e.preventDefault();
+            return true;
+        }
+
+        // Generate the DOM elements we want for the popup
+        var popupElements = $("<div>Marker at LatLong [" + e.latlng.lat.toString() + ", " + e.latlng.lng.toString() + "]" +'<br/><a href="#">Remove marker?</a></div>');
+
+        //Selected the popup's anchor tag and add a click event
+        $("a", popupElements).on("click", removeThisMarker);
+
+        // Add the DOM elements as the contents of this popup
+        newMarker.bindPopup(popupElements.get(0));//.openPopup();
+
+        // -----
         cities.addLayer(newMarker);
     }
 

@@ -55,7 +55,7 @@ var maxZoom = 18,
             return customMarker;
         },
 
-        addMarker: function(latlon) {
+        addMarker : function(callback, latlon) {
 
             $.ajax({
                 type: "POST",
@@ -63,6 +63,9 @@ var maxZoom = 18,
                 data: {
                     operation: "ADD",
                     latlon: latlon
+                },
+                success: function(data, xhr) {
+                    callback(data);
                 }
             })
         },
@@ -91,7 +94,9 @@ var maxZoom = 18,
             }).done(function(json) {
 
                 $.each(json, function(i, item) {
-                    var marker = new L.marker([item.lat, item.lon]).addTo(map);
+ //                   if (item != undefined) {
+                       var marker = new L.marker([item.lat, item.lon]).addTo(map);
+   //                 }
 
                     function removeThisMarker(e) {
                         // This function is a closure. It is closed-over `marker`, `i`, and `item`
